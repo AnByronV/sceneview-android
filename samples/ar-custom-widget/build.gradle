@@ -1,0 +1,62 @@
+plugins {
+
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.ar_custom_widget'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.ar_custom_widget"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+//    buildFeatures {
+//        compose true
+//    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion '1.3.2'
+//    }
+    aaptOptions {
+        noCompress 'filamat', 'ktx'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":samples:common")
+
+    // ArSceneView
+    releaseImplementation "io.github.sceneview:arsceneview:0.10.0"
+    debugImplementation project(":arsceneview")
+
+    // Maps & Location
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.maps.android:maps-utils-ktx:1.7.0'
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ar-custom-widget</string>
+    <string name="action_button">Get Anchors</string>
+</resources>
